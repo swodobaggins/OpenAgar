@@ -85,6 +85,7 @@ module.exports = class Player extends Template {
 
     kick(reason) {
         if (!reason) reason = "You have been kicked from the server";
+        this.PEvent('onKicked', {player:this});
         this.socket.emit('kicked', reason)
         this.socket.disconnect()
 
@@ -239,7 +240,7 @@ module.exports = class Player extends Template {
     pressKey(id) {
         // console.log(id)
         id = parseInt(id)
-
+        if(!this.PEvent('onKeyPress', {player: this, key: id})) return;
         switch (id) {
         case 32: // space
             this.keys.space = true
@@ -264,10 +265,7 @@ module.exports = class Player extends Template {
         case 70: // f
             this.keys.f = true;
             break;
-
         }
-
-
     }
 
     onmsg(msg, servers) {
@@ -307,10 +305,7 @@ module.exports = class Player extends Template {
         this.moveView = [];
         this.upmoveHash = {};
         this.moveHash = {};
-
-
         this.view = {};
-
     }
 
     calcView() {
