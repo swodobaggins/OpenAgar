@@ -6,7 +6,7 @@
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published
     by the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
+t    (at your option) any later version.
 
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -16,7 +16,6 @@
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-
 module.exports = class Template {
     constructor(position, mass, type, owner, other) {
         this.id = null;
@@ -42,7 +41,7 @@ module.exports = class Template {
             velocityInit: 0,
             acceleration: 0,
             useEngine: false,
-            delatT: 0,
+            deltaT: 0,
             maxDeltaT: 0
 
         }
